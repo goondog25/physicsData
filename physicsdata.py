@@ -39,20 +39,32 @@ class Atom:
         return net_charge
     
     def add_protons(self, moreProtons):
+        if moreProtons < 0:
+            raise ValueError("Cannot add a negative number of protons.")
         self.protons += moreProtons
 
     def remove_protons(self, lessProtons):
+        if lessProtons > self.protons:
+            raise ValueError("Cannot remove more protons than currently exist.")
         self.protons -= lessProtons
 
     def add_neutrons(self, moreNeutrons):
+        if moreNeutrons < 0:
+            raise ValueError("Cannot add a negative number of neutrons.")
         self.neutrons += moreNeutrons
 
     def remove_neutrons(self, lessNeutrons):
+        if lessNeutrons > self.neutrons:
+            raise ValueError("Cannot remove more neutrons than currently exist.")
         self.neutrons -= lessNeutrons
 
     def add_electrons(self, moreElectrons):
+        if moreElectrons < 0:
+            raise ValueError("Cannot add a negative number of electrons.")
         self.electrons += moreElectrons
     
     def remove_electrons(self, lessElectrons):
+        if lessElectrons > self.electrons:
+            raise ValueError("Cannot remove more electrons than currently exist.")
         self.electrons -= lessElectrons
 
